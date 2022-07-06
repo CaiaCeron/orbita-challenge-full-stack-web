@@ -1,0 +1,12 @@
+﻿@model IEnumerable<apiCadastro.ViewModels.StudentView>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach(var student in Model){
+    <h1>@student.AcademicRegistry</h1>
+    <p>@student.Name</p>
+    <p>@student.Cpf</p>
+    <p>@student.Email</p>
+}

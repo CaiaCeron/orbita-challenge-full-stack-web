@@ -1,0 +1,14 @@
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\bin\Debug\net6.0\CadastroApp.Data.deps.json
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\bin\Debug\net6.0\CadastroApp.Data.runtimeconfig.json
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\bin\Debug\net6.0\CadastroApp.Data.dll
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\bin\Debug\net6.0\CadastroApp.Data.pdb
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.csproj.AssemblyReference.cache
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.AssemblyInfoInputs.cache
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.AssemblyInfo.cs
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.csproj.CoreCompileInputs.cache
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.dll
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\refint\CadastroApp.Data.dll
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.pdb
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\CadastroApp.Data.genruntimeconfig.cache
+C:\Users\caicr\Desktop\Challenge\CadastroApp.Data\obj\Debug\net6.0\ref\CadastroApp.Data.dll
