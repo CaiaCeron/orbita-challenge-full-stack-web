@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jiw48aZE/KFo5eHgRHnAjzmv6SvBo1NAEKJclR6sdidHlpWwQdqotL8t4MHgWkga/mpJwZ7P1z6PN2hL5nxIlw==",
+  "dgSpecHash": "UDG3WyUVEjB+/dgTKJlqYv1rjWU+i+1TzY2czVRzg8kqAadTHA1Lxn1s8w2z3ppVSPAXDdL6/b7r1xGo2w8iJg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api_teste_grupo_a\\api_teste_grupo_a\\api_teste_grupo_a.csproj",
+  "projectFilePath": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caicr\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\caicr\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

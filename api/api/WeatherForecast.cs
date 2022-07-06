@@ -1,4 +1,4 @@
-namespace api_teste_grupo_a
+namespace api
 {
     public class WeatherForecast
     {

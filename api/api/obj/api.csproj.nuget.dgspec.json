@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api_teste_grupo_a\\api_teste_grupo_a\\api_teste_grupo_a.csproj": {}
+    "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api_teste_grupo_a\\api_teste_grupo_a\\api_teste_grupo_a.csproj": {
+    "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api_teste_grupo_a\\api_teste_grupo_a\\api_teste_grupo_a.csproj",
-        "projectName": "api_teste_grupo_a",
-        "projectPath": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api_teste_grupo_a\\api_teste_grupo_a\\api_teste_grupo_a.csproj",
+        "projectUniqueName": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api\\api.csproj",
+        "projectName": "api",
+        "projectPath": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api\\api.csproj",
         "packagesPath": "C:\\Users\\caicr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api_teste_grupo_a\\api_teste_grupo_a\\obj\\",
+        "outputPath": "C:\\Users\\caicr\\Desktop\\Challenge\\api\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\caicr\\AppData\\Roaming\\NuGet\\NuGet.Config",
