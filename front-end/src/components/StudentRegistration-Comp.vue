@@ -73,11 +73,21 @@
         :disabled="invalid"
         color="success"
         outlined
-        @click="saveStudent(), refreshList()"
+        @click="saveStudent(), clear()"
       >
         Salvar
       </v-btn>
-      <v-btn to="/alunos" color="error" outlined> Cancelar </v-btn>
+      <v-btn to="/alunos" color="error" outlined> Cancelar </v-btn
+      ><v-dialog v-model="dialogSubmit" max-width="500px" persistent>
+        <v-card>
+          <v-card-title class="text-h8">Aluno cadastrado com sucesso!</v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="success" text @click="closeSubmit" to="/alunos">OK</v-btn>
+            <v-spacer></v-spacer>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </form>
   </validation-observer>
 </template>
@@ -122,6 +132,7 @@ export default {
 
   data() {
     return {
+      dialogSubmit: false,
       someValue: "Cadastrar Novo Aluno",
       student: {
         name: "",
@@ -139,35 +150,29 @@ export default {
   },
 
   methods: {
-    refreshList() {
-      Student.List().then((received) => {
-        console.log(received.data);
-        this.students = received.data;
-      });
-    },
-
     saveStudent() {
+      this.dialogSubmit = true;
       Student.Create(this.student).then((received) => {
         console.log(received.data);
         this.students = received.data;
+        this.clear();
       });
-      this.refreshList();
     },
 
-    waitToRender() {
-      //setTimeout
+    closeSubmit() {
+      this.dialogSubmit = false;
     },
-  },
 
-  submit() {
-    this.$refs.observer.validate();
-  },
-  clear() {
-    this.name = "";
-    this.email = "";
-    this.ra = "";
-    this.cpf = "";
-    this.$refs.observer.reset();
+    submit() {
+      this.$refs.observer.validate();
+    },
+    clear() {
+      this.name = "";
+      this.email = "";
+      this.ra = "";
+      this.cpf = "";
+      this.$refs.observer.reset();
+    },
   },
 };
 </script>

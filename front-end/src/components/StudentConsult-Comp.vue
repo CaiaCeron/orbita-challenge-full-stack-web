@@ -31,13 +31,6 @@
       mobile-breakpoint="800"
       class="elevation-0"
     >
-      <tr v-for="student of students" :key="student.id">
-        <td>{{ student.id }}</td>
-        <td>{{ student.ra }}</td>
-        <td>{{ student.name }}</td>
-        <td>{{ student.cpf }}</td>
-        <td>{{ student.email }}</td>
-      </tr>
       <template v-slot:[`item.actions`]="{ item }">
         <div class="text-truncate">
           <v-btn text small @click="editItem(item)" to="/alunos/editar" onchange="">
@@ -107,9 +100,8 @@ export default {
 
   methods: {
     refreshList() {
-      Student.List().then((received) => {
-        console.log(received.data);
-        this.student = received.data;
+      api.get("/api/Student/").then((res) => {
+        this.students = res.data;
       });
     },
 
@@ -125,13 +117,18 @@ export default {
     },
 
     deleteItemConfirm() {
-      api.delete("/api/Student/" + this.index);
-      this.closeDelete();
-      this.refreshList();
+      api.delete("/api/Student/" + this.index).then(() => {
+        this.refreshList();
+        this.closeDelete();
+      });
     },
     closeDelete() {
       this.dialogDelete = false;
     },
+  },
+
+  created() {
+    this.refreshList();
   },
 
   mounted() {
