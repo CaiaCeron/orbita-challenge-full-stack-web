@@ -51,11 +51,13 @@
           <span class="text-h5">Editar Aluno</span>
         </v-card-title>
         <v-card-text>
-          <v-container v-for="student of students" v-bind:key="student.id">
+          <v-container>
             <v-row>
+              <v-text-field v-model="studentEdit.id"></v-text-field>
+
               <v-col cols="12">
                 <v-text-field
-                  v-model="student.name"
+                  v-model="studentEdit.name"
                   label="Nome"
                   required
                   rounded
@@ -65,7 +67,7 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  v-model="student.email"
+                  v-model="studentEdit.email"
                   label="E-mail"
                   required
                   rounded
@@ -75,7 +77,7 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  v-model="student.ra"
+                  v-model="studentEdit.ra"
                   label="Registro Acadêmico"
                   rounded
                   filled
@@ -85,7 +87,7 @@
               </v-col>
               <v-col cols="12">
                 <v-text-field
-                  v-model="student.cpf"
+                  v-model="studentEdit.cpf"
                   label="CPF"
                   rounded
                   filled
@@ -99,7 +101,9 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="error" text @click="dialogEdit = false"> Close </v-btn>
-          <v-btn color="success" text @click="dialogEdit = false"> Save </v-btn>
+          <v-btn color="success" text @click="(dialogEdit = false), alterateItem()">
+            Save
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -150,7 +154,13 @@ export default {
         { text: "Ações", value: "actions", align: "center", sortable: false },
       ],
       students: [],
-      studentEdit: undefined,
+      studentEdit: {
+        cpf: "",
+        email: "",
+        id: "",
+        name: "",
+        ra: "",
+      },
       errors: [],
     };
   },
@@ -170,16 +180,14 @@ export default {
 
     editItem(student) {
       this.studentEdit = student;
-      api.get("/api/Student/" + this.studentEdit.id);
       console.log(this.studentEdit);
     },
 
-    alterateItem(studentEdit) {
-      this.index = studentEdit;
-      console.log(this.index);
-      api.put("/api/Student/" + this.index.id).then(() => {
+    alterateItem() {
+      console.log(this.studentEdit);
+      api.put("/api/Student/" + this.studentEdit.id, this.studentEdit).then((resp) => {
+        console.log(resp);
         this.refreshList();
-        this.studentEdit = undefined;
       });
     },
 
@@ -205,7 +213,6 @@ export default {
 
   mounted() {
     Student.List().then((received) => {
-      console.log(received.data);
       this.students = received.data;
     });
   },

@@ -11,7 +11,7 @@ export default {
     },
 
     Edit: (student) => {
-        return api.put("/api/Student", student);
+        return api.put("/api/Student/", + student.id);
     },
 
     Delete: (student) => {
