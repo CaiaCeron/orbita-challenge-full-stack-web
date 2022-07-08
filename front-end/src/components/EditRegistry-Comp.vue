@@ -83,11 +83,16 @@ extend("email", {
 });
 
 export default {
+  title() {
+    return `CRUD - ${this.someValue}`;
+  },
+
   components: {
     ValidationProvider,
     ValidationObserver,
   },
   data: () => ({
+    someValue: "Editar Cadastro do Aluno",
     name: "",
     email: "",
     ra: "",

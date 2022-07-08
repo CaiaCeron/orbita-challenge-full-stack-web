@@ -25,7 +25,7 @@
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <v-toolbar-title>Consulta de Alunos</v-toolbar-title>
+      <v-toolbar-title>{{ textTitle }}</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
 
@@ -44,5 +44,11 @@ export default {
       { title: "Sobre", icon: "mdi-help", to: "/" },
     ],
   }),
+
+  computed: {
+    textTitle() {
+      return this.editedIndex === -1 ? "Sobre" : "Consulta de Alunos";
+    },
+  },
 };
 </script>

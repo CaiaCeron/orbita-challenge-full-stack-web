@@ -116,8 +116,13 @@ extend("email", {
 });
 
 export default {
+  title() {
+    return `CRUD - ${this.someValue}`;
+  },
+
   data() {
     return {
+      someValue: "Cadastrar Novo Aluno",
       student: {
         name: "",
         email: "",
@@ -147,6 +152,10 @@ export default {
         this.students = received.data;
       });
       this.refreshList();
+    },
+
+    waitToRender() {
+      //setTimeout
     },
   },
 

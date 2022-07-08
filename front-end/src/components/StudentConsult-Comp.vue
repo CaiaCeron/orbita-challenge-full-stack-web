@@ -40,7 +40,7 @@
       </tr>
       <template v-slot:[`item.actions`]="{ item }">
         <div class="text-truncate">
-          <v-btn text small @click="editItem(item)" to="/alunos/editar">
+          <v-btn text small @click="editItem(item)" to="/alunos/editar" onchange="">
             <v-icon class="mr-2" color="primary"> mdi-pencil </v-icon>
           </v-btn>
           <v-btn text small @click="deleteItem(item)">
@@ -74,12 +74,17 @@ import Student from "@/Services/student";
 import api from "@/Services/api";
 
 export default {
+  title() {
+    return `CRUD - ${this.someValue}`;
+  },
+
   data() {
     return {
+      someValue: "Cadastro de Alunos",
       dialogDelete: false,
       search: "",
       headers: [
-        { text: "Registro Acadêmico", value: "ra", align: "center" },
+        { text: "Registro Acadêmico", value: "ra", align: "center", sortable: true },
 
         { text: "Nome", value: "name", align: "center" },
 
@@ -100,13 +105,6 @@ export default {
     },
   },
 
-  mounted() {
-    Student.List().then((received) => {
-      console.log(received.data);
-      this.students = received.data;
-    });
-  },
-
   methods: {
     refreshList() {
       Student.List().then((received) => {
@@ -116,7 +114,7 @@ export default {
     },
 
     editItem(student) {
-      this.student = student.id;
+      this.student = student;
 
       console.log(this.student);
     },
@@ -134,6 +132,13 @@ export default {
     closeDelete() {
       this.dialogDelete = false;
     },
+  },
+
+  mounted() {
+    Student.List().then((received) => {
+      console.log(received.data);
+      this.students = received.data;
+    });
   },
 };
 </script>

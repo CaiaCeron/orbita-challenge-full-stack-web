@@ -64,7 +64,12 @@
 export default {
   name: "HelloWorld",
 
+  title() {
+    return `CRUD - ${this.someValue}`;
+  },
+
   data: () => ({
+    someValue: "Sobre",
     ecosystem: [
       {
         text: "vuetify-loader",

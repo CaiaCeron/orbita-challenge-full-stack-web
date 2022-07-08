@@ -4,11 +4,13 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import titleMixin from './plugins/titleMixin'
 
 
 export const eventBus = new Vue();
 
-Vue.config.productionTip = false
+Vue.mixin(titleMixin);
+Vue.config.productionTip = false;
 
 new Vue({
   router,
