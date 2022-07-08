@@ -33,7 +33,7 @@
     >
       <template v-slot:[`item.actions`]="{ item }">
         <div class="text-truncate">
-          <v-btn text small @click="editItem(item)" to="/alunos/editar" onchange="">
+          <v-btn text small @click="editItem(item), (dialogEdit = true)">
             <v-icon class="mr-2" color="primary"> mdi-pencil </v-icon>
           </v-btn>
           <v-btn text small @click="deleteItem(item)">
@@ -43,6 +43,67 @@
       </template>
     </v-data-table>
     <!--TABELA-->
+
+    <!--MODAL DE EDIÇÃO DE ALUNO-->
+    <v-dialog v-model="dialogEdit" persistent max-width="600px">
+      <v-card>
+        <v-card-title>
+          <span class="text-h5">Editar Aluno</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container v-for="student of students" v-bind:key="student.id">
+            <v-row>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="student.name"
+                  label="Nome"
+                  required
+                  rounded
+                  filled
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="student.email"
+                  label="E-mail"
+                  required
+                  rounded
+                  filled
+                  dense
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="student.ra"
+                  label="Registro Acadêmico"
+                  rounded
+                  filled
+                  dense
+                  disabled
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="student.cpf"
+                  label="CPF"
+                  rounded
+                  filled
+                  dense
+                  disabled
+                ></v-text-field>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="error" text @click="dialogEdit = false"> Close </v-btn>
+          <v-btn color="success" text @click="dialogEdit = false"> Save </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+    <!--MODAL DE EDIÇÃO DE ALUNO-->
 
     <!--MODAL DE AVISO DE EXCLUSÃO-->
     <v-dialog v-model="dialogDelete" max-width="500px">
@@ -75,6 +136,7 @@ export default {
     return {
       someValue: "Cadastro de Alunos",
       dialogDelete: false,
+      dialogEdit: false,
       search: "",
       headers: [
         { text: "Registro Acadêmico", value: "ra", align: "center", sortable: true },
@@ -88,6 +150,7 @@ export default {
         { text: "Ações", value: "actions", align: "center", sortable: false },
       ],
       students: [],
+      studentEdit: undefined,
       errors: [],
     };
   },
@@ -106,9 +169,18 @@ export default {
     },
 
     editItem(student) {
-      this.student = student;
+      this.studentEdit = student;
+      api.get("/api/Student/" + this.studentEdit.id);
+      console.log(this.studentEdit);
+    },
 
-      console.log(this.student);
+    alterateItem(studentEdit) {
+      this.index = studentEdit;
+      console.log(this.index);
+      api.put("/api/Student/" + this.index.id).then(() => {
+        this.refreshList();
+        this.studentEdit = undefined;
+      });
     },
 
     deleteItem(student) {
